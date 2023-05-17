@@ -21,14 +21,14 @@ end
 
 
 
-NQCModels.ndofs(model::CSVModel_1D)=Int(size(model.potential_matrix)[2]//2)
+NQCModels.ndofs(model::CSVModel_1D)=1
 
 function NQCModels.potential(model::CSVModel_1D, R::AbstractMatrix)
-    return(model.potential_function.(R))
+    return(model.potential_function(R[1,1]))
 end
 
 function NQCModels.derivative!(model::CSVModel_1D, D::AbstractMatrix, R::AbstractMatrix)
-    D.=model.derivative.(R)
+    D.=model.derivative(R[1,1])
 end
 
 CSVModel_1D(x)=CSVModel_1D(potential_matrix=x) # Definition shortcut. 
