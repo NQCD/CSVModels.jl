@@ -28,8 +28,7 @@ function NQCModels.potential(model::CSVModel_1D, R::AbstractMatrix)
 end
 
 function NQCModels.derivative!(model::CSVModel_1D, D::AbstractMatrix, R::AbstractMatrix)
-    D=model.derivative.(R)
-    return(D)
+    D.=model.derivative.(R)
 end
 
 CSVModel_1D(x)=CSVModel_1D(potential_matrix=x) # Definition shortcut. 
