@@ -1,7 +1,7 @@
 name = "CSVModels"
 uuid = "18506324-9e22-41e9-9a37-1aee4d110d3d"
 authors = ["Alexander Spears <alexander.spears@warwick.ac.uk> and contributors"]
-version = "1.0.0"
+version = "1.0.1"
 
 [deps]
 BSplineKit = "093aae92-e908-43d7-9660-e50ee39d5a0a"
