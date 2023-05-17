@@ -23,11 +23,11 @@ end
 
 NQCModels.ndofs(model::CSVModel_1D)=Int(size(model.potential_matrix)[2]//2)
 
-function NQCModels.potential(model::CSVModel_1D, R::AbstractMatrix)
+function NQCModels.potential(model::CSVModel_1D, R::AbstractArray)
     return(model.potential_function.(R))
 end
 
-function NQCModels.derivative!(model::CSVModel_1D, D::AbstractMatrix, R::AbstractMatrix)
+function NQCModels.derivative!(model::CSVModel_1D, D::AbstractArray, R::AbstractArray)
     D=model.derivative.(R)
     return(D)
 end
