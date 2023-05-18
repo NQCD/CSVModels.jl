@@ -16,7 +16,7 @@ Parameters.@with_kw struct CSVModel_1D <: NQCModels.AdiabaticModels.AdiabaticMod
     potential_matrix::Matrix{Float64}
     # build interpolation and derivative object once, then evaluate with functions
     potential_function=interpolate(potential_matrix[:,1],potential_matrix[:,2],BSplineOrder(3))
-    derivative=Derivative(1)*potential_function
+    derivative_function=Derivative(1)*potential_function
 end
 
 
@@ -28,7 +28,7 @@ function NQCModels.potential(model::CSVModel_1D, R::AbstractMatrix)
 end
 
 function NQCModels.derivative!(model::CSVModel_1D, D::AbstractMatrix, R::AbstractMatrix)
-    D.=model.derivative(R[1,1])
+    D.=model.derivative_function(R[1,1])
 end
 
 CSVModel_1D(x)=CSVModel_1D(potential_matrix=x) # Definition shortcut. 
